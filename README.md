@@ -11,4 +11,6 @@
 
 3. Install Tkinter library with `pip3 install tk` or `python3 -m pip install tk`
 
-4. run `main.py`
+4. [Enable](https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PI4Zfx7r_Uoe0DL6idr2I2fi5MzBkIycCV6bh5BgKmyZiKKj6vulzrFjbRA1uHvutJkRS0L7BoK0vNGiNUaRGmfd4Kng) Less Secure apps to access your Gmail
+
+5. run `main.py`
