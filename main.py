@@ -17,15 +17,15 @@ def sendemail():    #This Function Sends the Mail
         
         j = i = 0
         report = open('./report.txt',"w")
-        report.write("#"*10+"\tMail\t"+"#"*10+"\n\n")
+        report.write("-"*10+"\tMail\t"+"-"*10+"\n\n")
         report.write("From:\t"+loginMail+"\n\n"+"Subject:\t"+subject+'\n\n'+"Message :\n"+content+"\n\n")
 
 
         for file in attachments:
             report.write("Attachment:\t"+file+"\n\n")
 
-        report.write("#"*10+"\tMail\t"+"#"*10+"\n\n")
-        report.write("#"*10+"\tSent Report\t"+"#"*10+"\n\n")
+        report.write("-"*10+"\tMail\t"+"-"*10+"\n\n")
+        report.write("-"*10+"\tSent Report\t"+"-"*10+"\n\n")
 
         with open(addressBook, 'r') as csvfile:
             csvreader = csv.reader(csvfile)
@@ -59,7 +59,7 @@ def sendemail():    #This Function Sends the Mail
 
     except Exception as e:
         Label(mainframe, text=str(e)).grid(column=4,row=9,sticky=W)
-        report("@"*10+"\tError in Complete,in Complete Data\t"+"@"*10)
+        report("-"*10+"\tError in Complete,in Complete Data\t"+"-"*10)
         report.close()
 
     
