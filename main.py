@@ -4,6 +4,7 @@ from tkinter.filedialog import askopenfile, askopenfiles
 import smtplib
 import csv
 from email.message import EmailMessage
+from bs4 import BeautifulSoup
 
 
 attachments = []
@@ -31,11 +32,15 @@ def sendemail():    #This Function Sends the Mail
             csvreader = csv.reader(csvfile)
             for address in csvreader:
                 try:
+                    contentType = 'plain'
+                    if bool(BeautifulSoup(content, "html.parser").find()):
+                        contentType = 'html'
                     email = EmailMessage()
                     email['Subject'] = subject
                     email['From'] = loginMail
                     email['To'] = address
-                    email.set_content(content)
+                    # email.set_content(content)
+                    email.add_alternative(content,subtype=contentType)
 
                     for file in attachments:
                         with open(file,'rb') as fh:
