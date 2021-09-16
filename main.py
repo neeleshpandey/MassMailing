@@ -15,6 +15,9 @@ def sendemail():    #This Function Sends the Mail
         loginPass = entryLoginPass.get()
         subject = subjectEntry.get()
         content = messageBody.get('1.0','end')
+        contentType = 'plain'
+        if bool(BeautifulSoup(content, "html.parser").find()):
+            contentType = 'html'
         
         j = i = 0
         report = open('./report.txt',"w")
@@ -32,9 +35,6 @@ def sendemail():    #This Function Sends the Mail
             csvreader = csv.reader(csvfile)
             for address in csvreader:
                 try:
-                    contentType = 'plain'
-                    if bool(BeautifulSoup(content, "html.parser").find()):
-                        contentType = 'html'
                     email = EmailMessage()
                     email['Subject'] = subject
                     email['From'] = loginMail
